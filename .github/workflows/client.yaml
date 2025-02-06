@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 defaults:
   run:
-    working-directory: ./client
+    working-directory: ./
 
 jobs:
   ng-test:
@@ -18,7 +18,7 @@ jobs:
       with:
         node-version: 22
         cache: 'npm'
-        cache-dependency-path: ./client/package-lock.json
+        cache-dependency-path: ./package-lock.json
 
     - name: Install dependencies (npm ci)
       run: npm ci
@@ -39,7 +39,7 @@ jobs:
       with:
         node-version: 22
         cache: 'npm'
-        cache-dependency-path: ./client/package-lock.json
+        cache-dependency-path: ./package-lock.json
 
     - name: Install dependencies (npm ci)
       run: npm ci
