@@ -1,6 +1,6 @@
 name: End-to-End
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   ng-e2e:
