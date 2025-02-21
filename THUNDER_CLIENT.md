@@ -14,11 +14,11 @@ really helpful when you're trying to debug what your server gives you.
 To use Thunder Client (once the extension is installed in VS Code), open it from the sidebar.
 The icon is a circle with a lightning bolt in the middle.
 
-![Thunder client extension icon](https://user-images.githubusercontent.com/32685970/214179360-2ab176da-dc4f-43f8-8519-4ade1660ef89.png){ height=400px }
+![Thunder Client VS Code extension icon](https://user-images.githubusercontent.com/32685970/214179360-2ab176da-dc4f-43f8-8519-4ade1660ef89.png){height=400px}
 
 This should add a button in the top of the sidebar labelled `New Request`, click it.
 
-![Thunder client startup screen](https://user-images.githubusercontent.com/32685970/214179462-d89c738c-7ab3-4ede-99a8-a3c240169884.png)
+![Thunder Client startup screen](https://user-images.githubusercontent.com/32685970/214179462-d89c738c-7ab3-4ede-99a8-a3c240169884.png)
 
 This should open a window with two columns. In the top of the left column,
 there should be a URL bar with a url, (by default, it's `https://www.thunderclient.com/welcome`).
@@ -26,7 +26,7 @@ Change that to `http://localhost:4567/api/<the-route-you-want-to-test>` (ie. `ht
 
 ## `GET` Requests
 
-![Thunder client usage](https://user-images.githubusercontent.com/32685970/214179602-528f347b-b825-4446-9c91-d6671d8ad0bb.png)
+![Thunder Client usage](https://user-images.githubusercontent.com/32685970/214179602-528f347b-b825-4446-9c91-d6671d8ad0bb.png)
 
 By default, the type of request you are exploring is a `GET` request. You can see the type of request to the left of the URL. You can also change the query parameters of the request from this window (below the URL). Type in the name of the parameter and the value to send in the request. You can deselect the box to the left of a parameter you have entered to send the request without the parameter. This allows you to send different combinations of parameters in your query.
 
