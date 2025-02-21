@@ -24,7 +24,7 @@ describe('AddUserComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.overrideProvider(UserService, { useValue: new MockUserService() });
     TestBed.configureTestingModule({
-    imports: [
+      imports: [
         FormsModule,
         ReactiveFormsModule,
         MatSnackBarModule,
@@ -35,8 +35,8 @@ describe('AddUserComponent', () => {
         BrowserAnimationsModule,
         RouterModule,
         AddUserComponent
-    ],
-}).compileComponents().catch(error => {
+      ],
+    }).compileComponents().catch(error => {
       expect(error).toBeNull();
     });
   }));
@@ -275,18 +275,18 @@ describe('AddUserComponent#submitForm()', () => {
   beforeEach(() => {
     TestBed.overrideProvider(UserService, { useValue: new MockUserService() });
     TestBed.configureTestingModule({
-    imports: [ReactiveFormsModule,
+      imports: [ReactiveFormsModule,
         MatSnackBarModule,
         MatCardModule,
         MatSelectModule,
         MatInputModule,
         BrowserAnimationsModule,
         RouterModule.forRoot([
-            { path: 'users/1', component: UserProfileComponent }
+          { path: 'users/1', component: UserProfileComponent }
         ]),
         AddUserComponent, UserProfileComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents().catch(error => {
+      providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    }).compileComponents().catch(error => {
       expect(error).toBeNull();
     });
   });
@@ -363,6 +363,45 @@ describe('AddUserComponent#submitForm()', () => {
     const path = location.path();
     // A canned error response to be returned by the spy.
     const errorResponse = { status: 500, message: 'Server error' };
+    // "Spy" on the `.addUser()` method in the user service. Here we basically
+    // intercept any calls to that method and return the error response
+    // defined above.
+    const addUserSpy = spyOn(userService, 'addUser')
+      .and
+      .returnValue(throwError(() => errorResponse));
+    component.submitForm();
+    // Check that `.addUser()` was called with the form's values which we set
+    // up above.
+    expect(addUserSpy).toHaveBeenCalledWith(component.addUserForm.value);
+    // Confirm that we're still at the same path.
+    expect(location.path()).toBe(path);
+  });
+
+
+  it('should call addUser() and handle error response for illegal user', () => {
+    // Save the original path so we can check that it doesn't change.
+    const path = location.path();
+    // A canned error response to be returned by the spy.
+    const errorResponse = { status: 400, message: 'Illegal user error' };
+    // "Spy" on the `.addUser()` method in the user service. Here we basically
+    // intercept any calls to that method and return the error response
+    // defined above.
+    const addUserSpy = spyOn(userService, 'addUser')
+      .and
+      .returnValue(throwError(() => errorResponse));
+    component.submitForm();
+    // Check that `.addUser()` was called with the form's values which we set
+    // up above.
+    expect(addUserSpy).toHaveBeenCalledWith(component.addUserForm.value);
+    // Confirm that we're still at the same path.
+    expect(location.path()).toBe(path);
+  });
+
+  it('should call addUser() and handle unexpected error response if it arises', () => {
+    // Save the original path so we can check that it doesn't change.
+    const path = location.path();
+    // A canned error response to be returned by the spy.
+    const errorResponse = { status: 404, message: 'Not found' };
     // "Spy" on the `.addUser()` method in the user service. Here we basically
     // intercept any calls to that method and return the error response
     // defined above.
