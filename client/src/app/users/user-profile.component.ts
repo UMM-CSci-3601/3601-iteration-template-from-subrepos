@@ -1,14 +1,11 @@
-import { Component, DestroyRef, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { catchError, map, switchMap } from 'rxjs/operators';
-// import { User } from './user';
 import { UserCardComponent } from './user-card.component';
 import { UserService } from './user.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { of } from 'rxjs';
-// import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-user-profile',
@@ -17,6 +14,9 @@ import { of } from 'rxjs';
   imports: [UserCardComponent, MatCardModule],
 })
 export class UserProfileComponent {
+  private route = inject(ActivatedRoute);
+  private userService = inject(UserService);
+
   user = toSignal(
     this.route.paramMap.pipe(
       // Map the paramMap into the id
@@ -44,11 +44,4 @@ export class UserProfileComponent {
   );
   // The `error` will initially have empty strings for all its components.
   error = signal({ help: '', httpResponse: '', message: '' });
-
-  constructor(
-    private snackBar: MatSnackBar,
-    private route: ActivatedRoute,
-    private userService: UserService,
-    private destroyRef: DestroyRef
-  ) {}
 }
