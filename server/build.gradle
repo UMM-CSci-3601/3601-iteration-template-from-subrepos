@@ -29,13 +29,13 @@ repositories {
 // External dependencies that our application utilizes
 dependencies {
   // Javalin, a simple web framework for Java
-  implementation 'io.javalin:javalin:6.6.0'
+  implementation 'io.javalin:javalin:6.7.0'
 
   // Mongo DB Driver for Java
-  implementation 'org.mongodb:mongodb-driver-sync:5.5.0'
+  implementation 'org.mongodb:mongodb-driver-sync:5.6.2'
 
   // MongoJack, MongoDB integration for Jackson
-  implementation 'org.mongojack:mongojack:5.0.2'
+  implementation 'org.mongojack:mongojack:5.1.0'
 
   // Simple Logging Facade for Java
   implementation 'org.slf4j:slf4j-simple:2.0.17'
@@ -50,7 +50,7 @@ dependencies {
   testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
   // Mockito for testing
-  testImplementation 'org.mockito:mockito-core:5.17.0'
+  testImplementation 'org.mockito:mockito-core:5.21.0'
 }
 
 application {
@@ -77,6 +77,8 @@ jacocoTestReport {
     // location is buried pretty deep in the build directory,
     // so this makes it easier to find.
     html.outputLocation = file("${buildDir}/jacocoHtml")
+    xml.required = true
+    xml.outputLocation = layout.buildDirectory.dir('jacoco/jacoco.xml').get().asFile
   }
 
   afterEvaluate {
