@@ -29,17 +29,10 @@ repositories {
 // External dependencies that our application utilizes
 dependencies {
   // Javalin, a simple web framework for Java
-<<<<<<< HEAD
-  implementation 'io.javalin:javalin:6.6.0'
-
-  // Mongo DB Driver for Java
-  implementation 'org.mongodb:mongodb-driver-sync:5.5.0'
-=======
   implementation 'io.javalin:javalin:6.7.0'
 
   // Mongo DB Driver for Java
   implementation 'org.mongodb:mongodb-driver-sync:5.6.2'
->>>>>>> refs/subrepo/server/fetch
 
   // MongoJack, MongoDB integration for Jackson
   implementation 'org.mongojack:mongojack:5.1.0'
@@ -48,27 +41,16 @@ dependencies {
   implementation 'org.slf4j:slf4j-simple:2.0.17'
 
   // JUnit Jupiter API for testing.
-<<<<<<< HEAD
-  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.12.2'
-
-  // JUnit Jupiter Engine for testing.
-  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.12.2'
-=======
   testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.2'
 
   // JUnit Jupiter Engine for testing.
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.2'
->>>>>>> refs/subrepo/server/fetch
 
   // JUnit Platform Launcher for testing.
   testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
   // Mockito for testing
-<<<<<<< HEAD
-  testImplementation 'org.mockito:mockito-core:5.17.0'
-=======
   testImplementation 'org.mockito:mockito-core:5.21.0'
->>>>>>> refs/subrepo/server/fetch
 }
 
 application {
