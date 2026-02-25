@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Cache Gradle artifacts (downloaded JARs, the wrapper, and any downloaded JDKs)
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: |
           ~/.gradle/caches
@@ -28,15 +28,25 @@ jobs:
           ${{ runner.os }}-gradle-
 
     - name: Use Node.js 22
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 22
         cache: 'npm'
         cache-dependency-path: ./client/package-lock.json
 
+    - name: Install client dependencies
+      run: npm ci
+      working-directory: ./client
+
+    - name: Start backend server
+      run: ${{ github.workspace }}/server/gradlew run -p ${{ github.workspace }}/server/ &
+
+    - name: Wait for backend to be ready
+      run: npx wait-on http://localhost:4567/api/users
+      working-directory: ./client
+
     - name: Run e2e tests
-      uses: cypress-io/github-action@v6
+      uses: cypress-io/github-action@v7
       with:
-        start: ${{ github.workspace }}/server/gradlew run -p ${{ github.workspace }}/server/
         command: npm run e2e
         working-directory: ./client
