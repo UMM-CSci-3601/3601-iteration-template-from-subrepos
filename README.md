@@ -20,7 +20,8 @@ to your project and should be removed once you've started.
 :bangbang: Keeping things like the support for our `User` types will
 artificially inflate your test coverage results, making it look like you have
 much better coverage than you actually do. This is neither cool nor helpful,
-so you really should remove our code fairly early in your iteration.
+so you really should remove our code fairly early in your iteration. You can always
+look back at previous repositories to see those examples.
 
 :exclamation: You should remove this sentence and the text above, and
 replace them with at least an elevator pitch description of your project so that
