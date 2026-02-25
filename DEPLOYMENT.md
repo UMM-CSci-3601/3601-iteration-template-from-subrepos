@@ -77,7 +77,7 @@ One for the Java server, one for hosting the client files, and one for the datab
 
 - SSH to your droplet by running ``ssh root@[droplet ip here]`` (using the IP of your droplet) and enter the password you set.
 - When you first log in it'll tell you if there are any updates available. Don't feel
-  like you hae to do these updates; they should start you off with a pretty up-to-date
+  like you have to do these updates; they should start you off with a pretty up-to-date
   system. If if you want to upgrade your system, you can run `apt update` and then
   `apt upgrade` to apply the updates. There could be some odd questions along the
   way, though, so be prepared to have to do some homework to figure out what
