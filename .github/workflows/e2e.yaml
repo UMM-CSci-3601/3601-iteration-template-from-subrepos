@@ -51,4 +51,3 @@ jobs:
         start: ${{ github.workspace }}/server/gradlew run -p ${{ github.workspace }}/server/
         command: npm run e2e
         working-directory: ./client
-        install: false
