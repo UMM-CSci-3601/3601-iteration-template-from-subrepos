@@ -78,7 +78,7 @@ You can go ahead and remove this section of the README once you have changed the
 
 ## Contributors
 
-The contributors to this project can be seen [here](../../graphs/contributors).
+There have been many [contributors to this project](../../graphs/contributors).
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->

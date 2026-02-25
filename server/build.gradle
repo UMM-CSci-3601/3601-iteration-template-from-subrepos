@@ -32,7 +32,7 @@ dependencies {
   implementation 'io.javalin:javalin:6.7.0'
 
   // Mongo DB Driver for Java
-  implementation 'org.mongodb:mongodb-driver-sync:5.6.2'
+  implementation 'org.mongodb:mongodb-driver-sync:5.6.4'
 
   // MongoJack, MongoDB integration for Jackson
   implementation 'org.mongojack:mongojack:5.1.0'
@@ -41,10 +41,10 @@ dependencies {
   implementation 'org.slf4j:slf4j-simple:2.0.17'
 
   // JUnit Jupiter API for testing.
-  testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.2'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.3'
 
   // JUnit Jupiter Engine for testing.
-  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.2'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.3'
 
   // JUnit Platform Launcher for testing.
   testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

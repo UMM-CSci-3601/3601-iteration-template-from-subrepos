@@ -124,7 +124,7 @@ If you have made changes and wish to update what is running on the server:
 - `docker-compose stop` just stops all the containers, it does not remove anything.
 - `docker-compose down` stops the containers and removes them.
   - `docker-compose down --rmi all` removes all the images. It will then require rebuilding the images next time.
-  - More options [here](https://docs.docker.com/compose/reference/down/)
+  - More [Docker options](https://docs.docker.com/compose/reference/down/)
 - `docker-compose build` will build the images if things have changed in them
 
 There are many more commands and options for `docker-compose`. They are all documented on the [Docker Compose CLI reference](https://docs.docker.com/compose/reference/).
