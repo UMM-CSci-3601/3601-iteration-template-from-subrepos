@@ -39,7 +39,7 @@ jobs:
       working-directory: ./client
 
     - name: Start backend server
-      run: ./server/gradlew run -p ./server &
+      run: ${{ github.workspace }}/server/gradlew run -p ${{ github.workspace }}/server/ &
 
     - name: Wait for backend to be ready
       run: npx wait-on http://localhost:4567/api/users
@@ -48,6 +48,5 @@ jobs:
     - name: Run e2e tests
       uses: cypress-io/github-action@v7
       with:
-        start: ${{ github.workspace }}/server/gradlew run -p ${{ github.workspace }}/server/
         command: npm run e2e
         working-directory: ./client
